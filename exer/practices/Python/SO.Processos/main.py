@@ -1,35 +1,15 @@
 import os
-import sys
 
-#Coletando o primeiro número do arquivo 1 como parâmetro:
-param1 = sys.argv[1]
-arquivo1 = open(param1)
-numi = arquivo1.read()
-numInicial = int(numi)
+print('Sou processo principal (pai). Meu PID é: ', os.getpid())
 
-#Coletando o segundo número do arquivo 2 como parâmetro:
-param2 = sys.argv[2]
-arquivo2 = open(param2)
-numf = arquivo2.read()
-ret = os.fork()
-numFinal = int(numf)
+escolha = input('Escolha 1: ')
 
-
-
-if ret == 0:
-  #Processo Filho
-  with open("pares.txt", "w") as f:
-    for x in range(numInicial, numFinal+1):
-      if x %2 == 0:
-        y = str(x)
-        f.write(y)
-        f.write("\n")
-    f.close()
-    print("Finalizando a Execução do Filho")
-    os.execv("/bin/cp", ["-f", "pares.txt", "/tmp"] )
+if escolha == '1':
+    pid = os.fork()
+    if pid == 0:
+        print('\nSou Gabriel Oliveira Chaves, e meu PID é: ' + str(os.getpid()))
+    elif pid > 0:
+        print('Sou pai. Meu PID é:' + str(os.getpid()) + 
+          ", Gabriel Oliveira Chaves é: " + str(pid))
 else:
-  #Processo Pai
-  os.wait()
-  print("Iniciando Execução Pai")
-  os.execv("/bin/cat", ["/tmp/", "pares.txt"] )
-  
+    exit()

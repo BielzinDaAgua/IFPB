@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>replit</title>
+  <link href="style.css" rel="stylesheet" type="text/css" />
+</head>
+
+<body>
+  <h1>Calculadora</h1>
+  <p></p>  
+  <script>
+    function conta(n1, n2, sinal){
+      return eval(`${n1} ${sinal} ${n2}`);
+    }
+    
+    const n1 = Number(prompt("Insira o primeiro número da operação:"));
+    const n2 = Number(prompt("Insira o segunfo número da operação:"));
+    const sinal = prompt("insira o sinal da operação:");
+
+    const paragraph = document.querySelector('p');
+    const result = conta(n1, n2, sinal);
+    paragraph.innerText = `O resultado é ${result}`;
+  </script>
+</body>
+
+</html>
