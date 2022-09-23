@@ -1,1 +1,1 @@
-Pasta dedicado para atividade que desenvolvo/realizo nos estudos no campo universitário.
+Pasta dedicado para atividade que desenvolvo/realizo nos estudos do campo universitário.
