@@ -217,15 +217,13 @@ def tiro(matriz_resposta,matriz_exibir,jogador,n):
 
 print('Bem vindo ao jogo Batalha Naval! VAMOS LÁ!')
 
-n = int(input('Informe o número de navios(máx:10):'))
-
-while n>10:
-  print('O número de navios não pode ser maior que 10!')
+while True:
   n = int(input('Informe o número de navios(máx:10):'))
-while n<1:
-  print('O jogo precisa de navios para acontecer!')
-  n = int(input('Informe o número de navios(máx:10):'))
+  if 10 >= n and 1 <= n:
+    break
+  print('O número de navios tem que ser entre 1 a 10!')
 
+  
 matriz_respostas_jog1 = criar_matriz_respostas(10,10,n)
 matriz_exibir_jog1 = criar_matriz_exibir(10,10)
 
